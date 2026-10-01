@@ -115,19 +115,22 @@ public class GUI implements ActionListener{
   }
 
   private void aktuellesAusgeben() {
-    //Hier Quellcode eingeben
+    
   }
 
   private void zumAnfangDerListe() {
-    //Hier Quellcode eingeben
+    toDoListe.toFirst();
+    tfAktuelleAufgabe.setText(toDoListe.getContent());
   }
 
   private void naechstes() {
-    //Hier Quellcode eingeben
+    toDoListe.next();
+    tfAktuelleAufgabe.setText(toDoListe.getContent());   //mach ein if ding rein wenn da nichts mehr ist
   }
 
   private void zumEndeDerListe() {
-    //Hier Quellcode eingeben
+    toDoListe.toLast();
+    tfAktuelleAufgabe.setText(toDoListe.getContent());
   }
 
   private void aendern() {
@@ -147,7 +150,11 @@ public class GUI implements ActionListener{
   }
   
   private void ausgeben() {
-    //Hier Quellcode eingeben
+    toDoListe.toFirst();
+    while (toDoListe.hasAccess()) { 
+      taAusgabe.append(toDoListe.getContent() + "\n");
+      toDoListe.next();
+    }
   }
  
   public void listeLaden(File pFile) {
